@@ -1,81 +1,18 @@
-# Music - Project 1 
+### Analysis results
 
-Welcome to the first project! This project on the Music app by Sismics. The original repository can be found [here](https://github.com/sismics/music). 
+Spanning 58 pages, the Analysis.pdf document (within the 'Docs' folder) contains detailed descriptions of the classes responsible for user management, library management, Last.fm integration and Administrator features.
+Their functionality and behaviour are documented, and UML diagrams are used with an appropriate level of abstraction to paint a clear and concise picture of the system.
 
-**Do not modify this README. Use the [docs](/docs/) directory for anything you might want to submit**
+#### Design smells:
+Structures and patterns in the code that, while not incorrect, are indicative of violating fundamental design principles, are identified. These can hinder development by leading to recurring problems down the line and should be avoided. Many automated tools exist to identify these. We will use Sonarqube for serving this purpose in our project.
 
-## What is Music?
+Sonarqube identifies code smells in a given repository. Code smells are closely related to design smells, but are more specific in nature.
 
-Music is an open source, Web-based music server.
+#### Code metrics:
+Code metrics are objective, repeatable, empirical measure of a project’s properties. We use third party tools to get some metrics for our project in its initial state. 
 
-Music is written in Java, and may be run on any operating system with Java support. We will be working with the web application of Music. 
+#### Refactoring:
 
-## Requirements 
-Music requires JDK 8, Maven 3 and npm to run. We recommend working with a Linux or Unix-based OS. 
+We then proceed to to fix the identified design smells by refactoring the code to improve its design. However, we do not want to throw away the previous code or fundamentally change its functionality.
 
-Below are the instructions for installing the requirements on Ubuntu (and most Debian-based operating systems). 
-
-```
-sudo apt install openjdk-8-jdk
-sudo apt install maven
-sudo apt install npm
-```
-
-If you're using Mac, Windows, or any other OS, and need any help, feel free to contact us. 
-
-## Changing Java Version
-You will need two versions of Java to work on this project (1.8 and 11). Music requires Java 1.8 and Sonarqube requires Java 11. So you will have to change Java versions for working on different parts.
-
-### For Globally Changing Java Version (Only on Ubuntu) 
-* Run the following command and select the version of Java you want to use.
-  ```
-  sudo update-alternatives --config java
-  ```
-* Similarly for javac.
-  ```
-  sudo update-alternatives --config javac
-  ```
-> Make sure you set the same version for both.  
-
-### For Updating in Specific Runtime  (Mac & Linux)
-* **We recommend this method**
-* Instead of globally updating your Java version, it is better to temporarily change the Java version i.e. for as long as the terminal is open.
-* This is done by setting the path variable JAVA_HOME to the version of Java you want to use (1.8 for music and 11 for Sonarqube).
-* The command would be ```export JAVA_HOME=<path to java installation>``` for Mac and Linux.
-
-> The paths mentioned here are only sample paths. Make sure you find out the actual path for your JDK and use that.
-
-
-**On Mac**  
-The command would look something like this - 
-```
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_321.jdk/Contents/Home/
-```
-
-**On Linux**  
-The command would look something like this -  
-```
-export JAVA_HOME=/usr/lib/jvm/<jdk-version-something>
-```
-
-
-**On Windows**  
-Windows users, this is your cross to bear. [Here's](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html) a guide that might be of use. Again, feel free to contact us for any help.  
- 
-
-## Building the project  
-
-Build the project from the root directory using:
-
-```
-mvn clean -DskipTests install  
-```
-
-
-You can then launch the web application from the ```music-web``` directory using  
-```
-mvn jetty:run
-``` 
-
-This launches the application on ```localhost:8080/music-web/src/``` by default. Feel to play around from here!   
-
+We then remeasure the metrics previously measured after refactoring, check whether they have improved or worsened, and whether the trend is indeed consistent across all metrics. We attempt to analyze what contributed to this.
